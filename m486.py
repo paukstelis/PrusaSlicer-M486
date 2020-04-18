@@ -89,8 +89,10 @@ with open(sourcegcode, 'r+') as fd:
     for index, line in gcodelines:
 
         #Are we going to track extrusions?
-        if line.startswith("M83"):
+        if line.startswith("M82"):
            tracking = True
+        if line.startswith("M83"):
+           tracking = False
 
         if obj_startline and tracking:
            #track extrusions
